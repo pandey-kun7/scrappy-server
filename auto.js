@@ -17,7 +17,7 @@ export function serverFlow() {
 
 export default function autoDataFill() { 
   try {
-    cron.schedule("*/1 * * * *", () => { 
+    cron.schedule("*/1 */1 * * *", () => { 
       console.log("Running scraper...");
       serverFlow();
     })
