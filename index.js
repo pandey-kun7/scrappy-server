@@ -11,7 +11,9 @@ app.use(express.json());
 autoDataFill();
 
 app.use(express.urlencoded({extended:false}));
-app.use(cors({origin:"*"}));
+app.use(cors({
+  origin: process.env.FRONTEND_URL
+}));
 
 let data = JSON.parse(fs.readFileSync("./hack.json","utf-8"));
 

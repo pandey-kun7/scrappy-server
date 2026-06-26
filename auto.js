@@ -3,10 +3,14 @@ import "dotenv/config"
 import cron from "node-cron"
 
 export function serverFlow() { 
-  child_process.spawn("curl.exe", [`${process.env.UNSTOP_HACKATHONS_JSON_URL}`,"-o", "unstop.json"]);
-  child_process.spawn("curl.exe", [`${process.env.DEVFOLIO_HACKATHONS_JSON_URL}`,"-o", "devfolio.json"]);
-  child_process.spawn("curl.exe", [`${process.env.HACK2SKILL_HACKATHONS_JSON_URL}`,"-o", "h2s.json"]);
-  child_process.spawn("node" ,["hacks.js"]);
+  try {
+    child_process.spawn("curl", [`${process.env.UNSTOP_HACKATHONS_JSON_URL}`, "-o", "unstop.json"]);
+    child_process.spawn("curl", [`${process.env.DEVFOLIO_HACKATHONS_JSON_URL}`, "-o", "devfolio.json"]);
+    child_process.spawn("curl", [`${process.env.HACK2SKILL_HACKATHONS_JSON_URL}`, "-o", "h2s.json"]);
+    child_process.spawn("node", ["hacks.js"]);
+  } catch (err) { 
+    console.log(err.message);
+  }
 }
 
 // serverFlow();

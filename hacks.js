@@ -4,7 +4,6 @@ let unstop = JSON.parse(fs.readFileSync("./unstop.json","utf-8"));
 let devfolio = JSON.parse(fs.readFileSync("./devfolio.json","utf-8"));
 let hacks = JSON.parse(fs.readFileSync("./hack.json","utf-8"));
 let h2s = JSON.parse(fs.readFileSync("./h2s.json","utf-8"));
-hacks = [];
 
 // console.log(unstop[0]["data"]["data"].length);
 
